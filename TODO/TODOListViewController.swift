@@ -13,6 +13,24 @@ class TODOListViewController: UITableViewController
 
     let itemArray = ["购买水杯","吃药","修改密码"]
 
+    @IBAction func addButtonPressed(_ sender: UIBarButtonItem)
+    {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "添加一个ToDo项目", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "添加项目", style: .default) { (action) in
+            print(textField.text!)
+        }
+        alert.addAction(action)
+        
+        alert.addTextField { (alertTF) in
+            alertTF.placeholder = "创建一个新项目..."
+            textField = alertTF
+        }
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad()
     {
